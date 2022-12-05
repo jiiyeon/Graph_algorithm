@@ -18,8 +18,6 @@ int main()
         cnt의 원소를 각각 A-Z에 매칭 
         예를 들어 input이 a일 경우, A의 아스키코드는 65이므로 cnt[static_cast<int>(input)-65]++ */
         char c = toupper(input[i]);
-        std::cout << c << "\n";
-        std::cout << static_cast<int>(c) << "\n";
         cnt[static_cast<int>(c)-65]++;
         i++;
     }
@@ -29,7 +27,7 @@ int main()
         std::cout << "?" << "\n";
     else
     {
-        int idx = std::distance(cnt, std::find(std::begin(cnt), std::end(cnt), cnt_max));
+        int idx = std::distance(cnt.begin(), std::find(cnt.begin(), cnt.end(), cnt_max));
         std::cout << static_cast<char>(idx + 65) << "\n";
     }
     return 0;
