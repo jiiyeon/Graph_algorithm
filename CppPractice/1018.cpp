@@ -8,7 +8,6 @@
 #include <vector>
 #include <algorithm>
 
-
 // B로 시작하는 보드라고 가정할 때 바꿀 원소의 개수
 int count_startB(std::string input_str[8][8])
 {
