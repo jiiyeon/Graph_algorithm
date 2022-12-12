@@ -30,7 +30,7 @@ int main()
         std::string input;
         std::cin >> input;
 
-        cnt=0;
+        int cnt=0;
         std::cout << isPalindrome(input) << " " << cnt << "\n";
         i++;
     }
