@@ -39,31 +39,34 @@ std::vector<std::pair<std::string,int>> dijkstra(int node_size, int edge_size, s
     std::priority_queue<std::pair<std::string,int>> qu;
     qu.push({start,0});
 
-    while (!qu.empty())
+    while(!qu.empty())
     {
         std::string here = qu.top().first; // 방문할 노드의 이름
         int cost = qu.top().second; // 방문할 노드까지의 edge val
         
         qu.pop();
 
-
+        int i=0
+        while(1)
+        {
+            if (board[i].first!=here)
+                break;
             
-        for(int i=0; i<arr[here].size(); i++){
-            int next=arr[here][i].first;
-            int nextcost=arr[here][i].second;
-            
-            if(dist[next] > dist[here] + nextcost){    
-                //현재 next에 저장된 dist의값보다 현재의 점을 거쳐서 갈 경우가 
-                // 거리가 더짧으면 갱신해 주고 큐에 넣습니다. 
-                dist[next]=dist[here]+nextcost;
-                qu.push({-dist[next],next});
+            std::string next = board[i].second.first;
+            auto it = std::find()
+            int next_cost = board[i].second.second;
 
-
+            // 현재 점을 거쳐서 가면 next에 저장된 val보다 더 짧아질 경우 값을 갱신하고 큐에 넣음
+            int idx_here = std::find(res[0].first, res[node_size-1], here);
+            int idx_next = std::find(res[0].first, res[node_size-1], next);
+            if (res[next].second > res[here].second + next_cost )
+            {
+                res[next].second = res[here].second + next_cost;
+                qu.push({next, res[idx_next]});
+            }
+        }
     }
-
-
-
-
+    return qu;
 }
 
 int main()
